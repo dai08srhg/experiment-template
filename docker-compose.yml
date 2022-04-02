@@ -1,0 +1,30 @@
+# 開発用
+
+version: '3'
+services:
+  workspace:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: python-experiment
+    volumes:
+      - './:/workspace'
+    container_name: python-experiment
+    tty: true
+    working_dir: '/workspace'
+
+  jupyter:
+    container_name: jupyter
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: python-experiment
+    ports:
+      - 7007:7007
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    volumes:
+      - .:/workspace
+    restart: always
+    working_dir: /workspace/notebook
+    command: jupyter lab --ip=0.0.0.0 --port=7007 --allow-root --autoreload

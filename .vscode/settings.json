@@ -1,0 +1,16 @@
+{
+    "files.autoSave": "afterDelay",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "yapf",
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "120",
+        "--ignore=E402" 
+    ],
+    "python.formatting.yapfArgs": [
+        "--style={based_on_style: google, column_limit: 120}"
+    ],
+    "editor.formatOnSave": true
+}
